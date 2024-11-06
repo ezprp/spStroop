@@ -52,13 +52,26 @@
         .contact-info a:hover {
             text-decoration: underline;
         }
+        .copy-button {
+            background-color: #0056b3;
+            color: #ffffff;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.8em;
+        }
+        .copy-button:hover {
+            background-color: #003d82;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Grupo de Neurociencia Cognitiva</h1>
         <h2>Universidad de Granada</h2>
-        <p>Gracias por participar en nuestro experimento <strong>ONLINE</strong> sobre atención social. La tarea consta de un experimento sencillo, dura aproximadamente 30 minutos y la puedes hacer desde tu ordenador. </p>
+        <p>Gracias por participar en nuestro experimento <strong>ONLINE</strong> sobre atención social. La tarea consta de un experimento sencillo, dura aproximadamente 30 minutos y la puedes hacer desde tu ordenador.</p>
         
         <p>La tarea puede ser ejecutada únicamente en <strong>GOOGLE CHROME</strong> y en una <strong>laptop u ordenador de escritorio</strong> <em>(NO MÓVIL, NO TABLETS)</em>.</p>
         
@@ -67,9 +80,22 @@
         <p>En caso de que desees hacerlo en este momento, o no lo has podido realizar en tu horario, puedes enviar un correo con tu ID de Sona solicitando el enlace.</p>
         
         <div class="contact-info">
-            <p>Cualquier pregunta puedes hacerla a: <a href="mailto:rjponce@correo.ugr.es">rjponce@correo.ugr.es</a></p>
+            <p>Cualquier pregunta puedes hacerla a: 
+                <a href="mailto:rjponce@correo.ugr.es" id="email">rjponce@correo.ugr.es</a>
+                <button class="copy-button" onclick="copyEmail()">Copiar</button>
+            </p>
         </div>
     </div>
+
+    <script>
+        function copyEmail() {
+            const email = document.getElementById('email').textContent;
+            navigator.clipboard.writeText(email).then(() => {
+                alert("Correo copiado: " + email);
+            }).catch((err) => {
+                console.error("Error al copiar: ", err);
+            });
+        }
+    </script>
 </body>
 </html>
-
